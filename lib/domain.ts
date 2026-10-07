@@ -1,0 +1,12 @@
+export type Entity={id:string;businessId:string;createdAt:string};
+export type Business={id:string;name:string;industry:string;website?:string;location:string;services:string[];products:string[];targetCustomers:string};
+export type User={id:string;email:string};
+export type Membership={userId:string;businessId:string;role:'owner'|'admin'|'member'};
+export type Lead=Entity&{name:string;company:string;email:string;source:string;status:'New'|'Contacted'|'Qualified'|'Won';value:number};
+export type Content=Entity&{body:string;kind:'social'|'email'|'blog'|'ad';status:'draft'|'approved';approvedBy?:string};
+export type SocialPost=Entity&{contentId:string;platform:'Facebook'|'Instagram'|'LinkedIn';scheduledAt?:string;status:'draft'|'approved'|'scheduled'|'published'|'failed'};
+export type Campaign=Entity&{name:string;channel:string;status:'draft'|'approved'|'active'|'paused'};
+export type Chatbot=Entity&{name:string;sourceIds:string[];escalationContact:string};
+export type FinancialRecord=Entity&{kind:'revenue'|'expense';amountCents:number;currency:string;category:string;occurredOn:string};
+export type Report=Entity&{kind:string;storageKey:string};
+export type Subscription=Entity&{planId:string;status:'trial'|'active'|'past_due'|'cancelled'};

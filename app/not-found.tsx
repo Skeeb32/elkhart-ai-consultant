@@ -1,0 +1,2 @@
+import Link from '@/components/app-link';
+export default function NotFound(){return <main id="main" className="container section"><span className="eyebrow">404 / A DIFFERENT NEXT STEP</span><h1>That page isn’t here.</h1><p className="section-lead">Explore the services or return to the homepage to find what you need.</p><div className="form-actions"><Link className="button" href="/">Back to home</Link><Link className="button outline" href="/services">Explore services</Link></div></main>}

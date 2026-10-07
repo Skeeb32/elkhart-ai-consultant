@@ -1,0 +1,5 @@
+import Link from '@/components/app-link';
+import {PageIntro,CTA} from '@/components/marketing/shared';
+import {articles} from '@/config/articles';
+export const metadata={alternates:{canonical:'/blog'},title:'Field Notes for Local Business',description:'Practical guides to AI, local SEO, lead follow-up, social content, and business automation for Elkhart businesses.'};
+export default function Blog(){return <><PageIntro eyebrow="FIELD NOTES" title="Less jargon. More useful ideas." description="Short guides to help you ask better questions, choose a practical starting point, and keep people in control."/><section className="section container"><div className="article-grid">{articles.map((a,i)=><Link className="article-card" href={`/blog/${a.slug}`} key={a.slug}><div className="article-cover"><span>FIELD NOTE / {String(i+1).padStart(2,'0')}</span><strong>{a.category}</strong></div><div className="article-body"><span className="eyebrow">{a.category}</span><h2>{a.title}</h2><p>{a.summary}</p><span className="text-link">Read field note</span></div></Link>)}</div></section><CTA/></>}

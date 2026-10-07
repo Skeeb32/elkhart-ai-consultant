@@ -1,0 +1,7 @@
+import Link from '@/components/app-link';
+import {notFound} from 'next/navigation';
+import {articles} from '@/config/articles';
+import {PageIntro,CTA} from '@/components/marketing/shared';
+export function generateStaticParams(){return articles.map(a=>({slug:a.slug}))}
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const a=articles.find(x=>x.slug===slug);return {title:a?.title||'Article not found',description:a?.summary,alternates:{canonical:`/blog/${slug}`},openGraph:{title:a?.title,description:a?.summary,type:'article'}}}
+export default async function Article({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const a=articles.find(x=>x.slug===slug);if(!a)notFound();return <><PageIntro eyebrow={`FIELD NOTES / ${a.category.toUpperCase()}`} title={a.title} description={a.summary}/><article className="container prose"><p className="legal-note">General business education · Elkhart AI Consultant</p>{a.sections.map(([h,p])=><section key={h}><h2>{h}</h2><p>{p}</p></section>)}<hr className="divider"/><p>AI-generated content needs human review. Examples are illustrative, and business or marketing results are not guaranteed.</p><div className="inline-links"><Link className="text-link" href="/blog">All field notes</Link><Link className="text-link" href="/ai-audit">Find your starting point</Link></div></article><CTA/></>}

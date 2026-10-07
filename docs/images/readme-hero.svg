@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 390" role="img" aria-labelledby="title desc">
+<title id="title">Elkhart AI Consultant — More business. Less busywork.</title><desc id="desc">An open-source local business website and interactive AI workflow demo, built with TypeScript and React.</desc>
+<rect width="1280" height="390" rx="20" fill="#152e30"/>
+<rect x="44" y="42" width="48" height="48" rx="10" fill="#d7ef88"/>
+<path d="M58 52h22v6H64v5h13v6H64v5h16v6H58z" fill="#152e30"/>
+<text x="110" y="61" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700" letter-spacing="3">ELKHART</text><text x="110" y="83" fill="#b9cac1" font-family="Arial,Helvetica,sans-serif" font-size="12" letter-spacing="3">AI CONSULTANT</text>
+<text x="44" y="166" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="62" font-weight="700" letter-spacing="-2">More business.</text><text x="44" y="231" fill="#d7ef88" font-family="Arial,Helvetica,sans-serif" font-size="62" font-weight="700" letter-spacing="-2">Less busywork.</text>
+<text x="47" y="277" fill="#c7d5cd" font-family="Arial,Helvetica,sans-serif" font-size="19">A local-first website. A working demo. A platform foundation.</text>
+<line x1="44" y1="314" x2="1236" y2="314" stroke="#415958"/>
+<text x="47" y="351" fill="#c5d3c9" font-family="Arial,Helvetica,sans-serif" font-size="13" letter-spacing="2">TYPESCRIPT / REACT / NEXT.JS APP ROUTER / CLOUDFLARE WORKERS</text>
+<text x="1042" y="351" fill="#d7ef88" font-family="Arial,Helvetica,sans-serif" font-size="13" letter-spacing="2">OPEN SOURCE · MIT</text>
+<g font-family="Arial,Helvetica,sans-serif"><rect x="829" y="53" width="360" height="59" rx="8" fill="#234342" stroke="#52705f"/><text x="850" y="77" fill="#d7ef88" font-size="10" letter-spacing="2">01 / DISCOVER</text><text x="850" y="98" fill="#ffffff" font-size="16">Find a useful starting point</text><path d="M1009 112v20" stroke="#d7ef88" stroke-dasharray="4 4"/><rect x="829" y="132" width="360" height="59" rx="8" fill="#234342" stroke="#52705f"/><text x="850" y="156" fill="#d7ef88" font-size="10" letter-spacing="2">02 / EXPLORE</text><text x="850" y="177" fill="#ffffff" font-size="16">Try the tools and workflows</text><path d="M1009 191v20" stroke="#d7ef88" stroke-dasharray="4 4"/><rect x="829" y="211" width="360" height="59" rx="8" fill="#d7ef88"/><text x="850" y="235" fill="#38533c" font-size="10" letter-spacing="2">03 / BUILD</text><text x="850" y="256" fill="#152e30" font-size="16" font-weight="700">Keep the human in control</text></g>
+</svg>

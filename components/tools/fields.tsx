@@ -1,0 +1,4 @@
+'use client';
+import {Select,SelectTrigger,SelectValue,SelectContent,SelectItem} from '@/components/ui/select';
+export function Choice({id,label,value,onChange,options}:{id:string;label:string;value:string;onChange:(value:string)=>void;options:string[]}){return <div className="field"><label htmlFor={id}>{label}</label><Select value={value} onValueChange={onChange}><SelectTrigger id={id} className="choice-trigger"><SelectValue/></SelectTrigger><SelectContent>{options.map(o=><SelectItem value={o} key={o}>{o}</SelectItem>)}</SelectContent></Select></div>}
+export function NumberField({id,label,value,onChange,max=10000000}:{id:string;label:string;value:string;onChange:(v:string)=>void;max?:number}){return <label className="field" htmlFor={id}>{label}<input id={id} type="number" min="0" max={max} step="any" required value={value} onChange={e=>onChange(e.target.value)}/></label>}

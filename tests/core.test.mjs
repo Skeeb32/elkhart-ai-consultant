@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {leadEstimate,marketingMetrics,csvText} from '../lib/calculations.ts';
+import {auditRecommendations,samplePost,MockAIService} from '../lib/ai/mock.ts';
+test('conversion scenario computes both baselines and incremental leads',()=>assert.deepEqual(leadEstimate(1000,2,4),{before:20,after:40,additional:20}));
+test('lead rates reject invalid percentages and non-finite input',()=>{for(const args of [[1000,2,101],[-1,2,4],[NaN,2,4],[10,-1,5]])assert.throws(()=>leadEstimate(...args));});
+test('lower conversion remains a negative scenario',()=>assert.equal(leadEstimate(1000,4,2).additional,-20));
+test('marketing metrics distinguish revenue from profit',()=>assert.deepEqual(marketingMetrics(1000,40,8,500),{revenue:4000,costPerLead:25,acquisitionCost:125,returnOnSpend:4,netMarketingReturn:300}));
+test('zero denominators return no invented ratios',()=>{const r=marketingMetrics(0,0,0,500);assert.equal(r.costPerLead,null);assert.equal(r.acquisitionCost,null);assert.equal(r.returnOnSpend,null);assert.equal(r.netMarketingReturn,null)});
+test('marketing inputs reject impossible customer counts',()=>assert.throws(()=>marketingMetrics(100,1,2,50)));
+test('CSV escapes quotes, commas and spreadsheet formula payloads',()=>{const csv=csvText([['=HYPERLINK("bad")','a,b','line\nend',' @SUM(A1)',10]]);assert.equal(csv,'"\'=HYPERLINK(""bad"")","a,b","line\nend","\' @SUM(A1)","10"')});
+const base={business:'Contractor',location:'Elkhart',website:'',marketing:'Word of mouth',challenge:'Too much repetitive admin'};
+test('audit reflects task and website input without pretending to crawl',()=>{assert.match(auditRecommendations(base)[0].title,/repetitive/);assert.match(auditRecommendations({...base,website:'https://example.com'})[1].reason,/has not visited/)});
+test('audit validates required fields',()=>assert.throws(()=>auditRecommendations({...base,location:''})));
+test('social output adapts theme and platform',()=>{const p=samplePost({business:'Retail',topic:'winter planning',platform:'Instagram',tone:'Friendly',theme:'Tips'});assert.match(p,/winter planning/);assert.match(p,/#Elkhart/);assert.match(p,/1\./)});
+test('mock provider labels its mode and source',async()=>{const r=await new MockAIService().analyzeBusiness(base);assert.equal(r.mode,'demo');assert.equal(r.data.length,3)});

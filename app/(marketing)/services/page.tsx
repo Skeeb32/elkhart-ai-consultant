@@ -1,0 +1,4 @@
+import {PageIntro,CTA} from '@/components/marketing/shared';
+import {ServiceGrid,IndustryGrid} from '@/components/marketing/sections';
+export const metadata={alternates:{canonical:'/services'},title:'AI, Websites, SEO & Automation Services',description:'Explore practical website, marketing, chatbot, e-commerce and business automation services for Elkhart and Michiana businesses.'};
+export default function Services(){return <><PageIntro eyebrow="PRACTICAL HELP. CONNECTED THINKING." title="Better systems for everyday business." description="One useful improvement or a connected set of tools. Start with the outcome you need, and build from there."/><section className="section container"><ServiceGrid/></section><section className="section container"><span className="eyebrow">BUILT AROUND YOUR WORK</span><h2>Different businesses.<br/>Different starting points.</h2><IndustryGrid/></section><CTA/></>}
